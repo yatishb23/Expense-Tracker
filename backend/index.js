@@ -15,8 +15,7 @@ app.post("/user", async (req, res) => {
   const parsePayload = createUser.createUser.safeParse(createPayload);
   if (!parsePayload.success) {
     return res.status(400).json({
-      msg: "Invalid payload",
-      errors: parsePayload.error.errors,
+      msg: "Invalid payload"
     });
   }
 
