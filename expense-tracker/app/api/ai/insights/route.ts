@@ -25,7 +25,7 @@ export async function GET(request: NextRequest) {
     return Response.json({ insight: "No expenses yet. Start tracking to get AI insights!" });
   }
 
-  const total = expenses.reduce((s, e) => s + e.amount, 0);
+  const total = expenses.reduce((s: number, e) => s + e.amount, 0);
   const byCategory = expenses.reduce((acc: Record<string, number>, e) => {
     acc[e.category] = (acc[e.category] || 0) + e.amount;
     return acc;
