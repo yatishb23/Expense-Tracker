@@ -29,8 +29,8 @@ export default function ExpenseForm({ onAdded }: Props) {
       setAmount("");
       setCategory("");
       onAdded();
-    } catch (err: any) {
-      alert(err.message);
+    } catch (err: unknown) {
+      alert(err instanceof Error ? err.message : "Failed to add expense");
     } finally {
       setLoading(false);
     }

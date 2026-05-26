@@ -2,6 +2,7 @@ import { NextRequest } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { getUserIdFromRequest } from "@/lib/auth";
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import type { Expense } from "@prisma/client";
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
 const model = genAI.getGenerativeModel({
@@ -25,12 +26,12 @@ export async function GET(request: NextRequest) {
     return Response.json({ insight: "No expenses yet. Start tracking to get AI insights!" });
   }
 
-  const total = expenses.reduce((s: number, e) => s + e.amount, 0);
-  const byCategory = expenses.reduce((acc: Record<string, number>, e) => {
+  const total = expenses.reduce((s: number, e: Expense) => s + e.amount, 0);
+  const byCategory = expenses.reduce((acc: Record<string, number>, e: Expense) => {
     acc[e.category] = (acc[e.category] || 0) + e.amount;
     return acc;
   }, {});
-  const topCategory = Object.entries(byCategory).sort((a, b) => b[1] - a[1])[0]?.[0] || "N/A";
+  const topCategory = Object.entries(byCategory).sort((a: [string, number], b: [string, number]) => b[1] - a[1])[0]?.[0] || "N/A";
   const avgPerDay = total / Math.max(expenses.length, 1);
 
   const prompt = `You are a financial advisor. Analyze these expenses and give 3 concise actionable insights:

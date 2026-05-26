@@ -1,6 +1,7 @@
 import { NextRequest } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { getUserIdFromRequest } from "@/lib/auth";
+import type { Prisma } from "@prisma/client";
 
 export async function GET(request: NextRequest) {
   const userId = getUserIdFromRequest(request);
@@ -12,7 +13,7 @@ export async function GET(request: NextRequest) {
   const month = searchParams.get("month");
   const year = searchParams.get("year");
 
-  const where: any = { userId };
+  const where: Prisma.ExpenseWhereInput = { userId };
 
   if (month && year) {
     const start = new Date(Number(year), Number(month) - 1, 1);
