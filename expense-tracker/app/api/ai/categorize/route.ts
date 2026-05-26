@@ -7,6 +7,7 @@ const model = genAI.getGenerativeModel({
   generationConfig: { responseMimeType: "application/json" },
 });
 
+
 const CATEGORIES = [
   "Food & Dining", "Transportation", "Shopping", "Entertainment",
   "Bills & Utilities", "Health", "Education", "Travel", "Other",
