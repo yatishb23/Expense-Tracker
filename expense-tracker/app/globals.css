@@ -1,18 +1,44 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-background: #0c0c0c;
-  --color-foreground: #e4e4e7;
-  --color-neutral-850: #1a1a1a;
-  --color-neutral-750: #27272a;
-  --color-accent: #a78bfa;
-  --color-accent-hover: #8b5cf6;
-  --color-muted: #71717a;
-  --color-border: #27272a;
-  --color-card: #141414;
-  --color-card-hover: #1a1a1a;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-neutral-850: var(--neutral-850);
+  --color-neutral-750: var(--neutral-750);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-card: var(--card);
+  --color-card-hover: var(--card-hover);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+}
+
+:root {
+  --background: #f4f4f5;
+  --foreground: #09090b;
+  --neutral-850: #e4e4e7;
+  --neutral-750: #d4d4d8;
+  --accent: #8b5cf6;
+  --accent-hover: #7c3aed;
+  --muted: #52525b;
+  --border: #d4d4d8;
+  --card: #ffffff;
+  --card-hover: #fafafa;
+}
+
+.dark {
+  --background: #0c0c0c;
+  --foreground: #e4e4e7;
+  --neutral-850: #1a1a1a;
+  --neutral-750: #27272a;
+  --accent: #a78bfa;
+  --accent-hover: #8b5cf6;
+  --muted: #71717a;
+  --border: #27272a;
+  --card: #141414;
+  --card-hover: #1a1a1a;
 }
 
 body {
