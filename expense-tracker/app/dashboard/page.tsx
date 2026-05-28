@@ -58,7 +58,6 @@ export default function DashboardPage() {
   if (loading) {
     return (
       <div className="min-h-screen bg-background">
-        <Navbar />
         <div className="flex items-center justify-center h-[80vh] text-muted">
           Loading...
         </div>
