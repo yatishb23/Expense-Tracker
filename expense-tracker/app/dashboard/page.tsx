@@ -68,7 +68,6 @@ export default function DashboardPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <Navbar />
       <main className="max-w-6xl mx-auto px-4 py-8 space-y-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="bg-card border border-neutral-800 rounded-xl p-5">

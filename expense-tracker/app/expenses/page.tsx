@@ -43,7 +43,6 @@ export default function ExpensesPage() {
   if (loading) {
     return (
       <div className="min-h-screen bg-background">
-        <Navbar />
         <div className="flex items-center justify-center h-[80vh] text-muted">
           Loading...
         </div>
@@ -53,7 +52,6 @@ export default function ExpensesPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <Navbar />
       <main className="max-w-4xl mx-auto px-4 py-8 space-y-8">
         <div>
           <h1 className="text-xl font-bold text-foreground">Expenses</h1>
